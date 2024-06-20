@@ -41,7 +41,7 @@ export async function translateByDeepLX(
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Accept: "*/*",
+      "Accept": "*/*",
       "x-app-os-name": "iOS",
       "x-app-os-version": "16.3.0",
       "Accept-Language": "en-US,en;q=0.9",
@@ -50,7 +50,7 @@ export async function translateByDeepLX(
       "User-Agent": "DeepL-iOS/2.9.1 iOS 16.3.0 (iPhone13,2)",
       "x-app-build": "510265",
       "x-app-version": "2.9.1",
-      Connection: "keep-alive",
+      "Connection": "keep-alive",
     },
     body: postStr,
   });

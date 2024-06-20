@@ -3,7 +3,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/42b544a8-ba8f-4b7b-8674-6f7bb676c9d9/deploy-status)](https://app.netlify.com/sites/deeplx-next/deploys)
 
-This a simple implement in typescript of the deeplx project.
+This is a simple implement in typescript of the deeplx project.
 
 ```bash
 $ curl -X POST -H "Content-Type: application/json" -d '{"text": "Hello, world!", "source_lang": "en", "target_lang": "zh"}' https://deeplx-next.netlify.app/api/translate | jq

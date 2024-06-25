@@ -1,4 +1,6 @@
+import prisma from "@/app/util/db";
 import { randomInt } from "crypto";
+import { json } from "stream/consumers";
 
 export async function translateByDeepLX(
   source_lang: string,
@@ -8,6 +10,23 @@ export async function translateByDeepLX(
     code: number,
     message: string,
 }> {
+  try {
+    const cache = await prisma.cache.findFirst({
+      where: {
+        key: JSON.stringify({
+          source_lang: source_lang,
+          target_lang: target_lang,
+          text: translateText,
+        }),
+      },
+    });
+    if(cache) {
+      return JSON.parse(cache.value);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+
   let id = getRandomNumber();
   if (!source_lang) {
     // todo detect language
@@ -67,6 +86,20 @@ export async function translateByDeepLX(
     target_lang: target_lang,
     method: "deeplx-next by github.com/1939323749",
   };
+  try {
+    await prisma.cache.create({
+      data: {
+        key: JSON.stringify({
+          source_lang: source_lang,
+          target_lang: target_lang,
+          text: translateText,
+        }),
+        value: JSON.stringify(deepLXTranslationResult),
+      },
+    });
+  } catch (error) {
+    console.error(error);
+  }
   return deepLXTranslationResult;
 }
 

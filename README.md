@@ -1,4 +1,5 @@
-
+> [!WARNING]  
+> Due to no maintenance for a period of time, this method is currently invalid. Please refer to:[DeepLX](https://github.com/OwO-Network/DeepLX)
 # deeplx-next
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/42b544a8-ba8f-4b7b-8674-6f7bb676c9d9/deploy-status)](https://app.netlify.com/sites/deeplx-next/deploys)
